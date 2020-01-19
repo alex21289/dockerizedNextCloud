@@ -60,7 +60,6 @@ services:
       - proxy
       - db
     volumes:
-      - nextcloud:/var/www/html
       - /volumes/data1/nextcloud/var/html/config:/var/www/html/config
       - /volumes/data1/nextcloud/var/html/custom_apps:/var/www/html/custom_apps
       - /volumes/data1/nextcloud/var/html/data:/var/www/html/data
@@ -76,7 +75,7 @@ services:
 
 volumes:
   nextcloud:
-  db:
+  nextcloud-db:
 
 networks:
   nextcloud_network:
