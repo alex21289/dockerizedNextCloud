@@ -58,7 +58,7 @@ services:
     depends_on:
       - letsencrypt
       - proxy
-      - db
+      - nextcloud-db
     volumes:
       - /volumes/data1/nextcloud/var/html/config:/var/www/html/config
       - /volumes/data1/nextcloud/var/html/custom_apps:/var/www/html/custom_apps
