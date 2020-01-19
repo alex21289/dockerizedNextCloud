@@ -10,8 +10,8 @@ services:
     networks:
       - nextcloud_network
     ports:
-      - 1003:80
-      - 1004:443
+      - 80:80
+      - 443:443
     volumes:
       - ./proxy/conf.d:/etc/nginx/conf.d:rw
       - ./proxy/vhost.d:/etc/nginx/vhost.d:rw
@@ -37,17 +37,18 @@ services:
     restart: unless-stopped
 
   db:
-    image: postgres
-    container_name: nextcloud-postgres
+    image: mariadb
+    container_name: nextcloud-mariadb
     networks:
       - nextcloud_network
     volumes:
-      - db:/volumes/data1/nextcloud/postgres
+      - db:/volumes/data1/postgres
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - POSTGRES_DB=nextcloud
-      - POSTGRES_USER=nextcloud
-      - POSTGRES_PASSWORD=nextcloud
+      - MYSQL_ROOT_PASSWORD=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
     restart: unless-stopped
   
   app:
