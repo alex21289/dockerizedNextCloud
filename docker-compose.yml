@@ -19,7 +19,6 @@ services:
             - ./proxy/certs:/etc/nginx/certs:ro
             - /etc/localtime:/etc/localtime:ro
             - /var/run/docker.sock:/tmp/docker.sock:ro
-
         restart: unless-stopped
 
     letsencrypt:
@@ -28,16 +27,13 @@ services:
         depends_on: 
             - proxy
         networks: nextcloud_network
-
         volumes: 
             - ./proxy/certs:/etc/nginx/certs:rw
             - ./proxy/vhost.d:/etc/nginx/vhost.d:rw
             - ./proxy/html:/usr/share/nginx/html:rw
             - /etc/localtime:/etc/localtime:ro
             - /var/run/docker.sock:/var/run/docker.sock:ro
-
         restart: unless-stopped
-
 
     db:
         image: postgres
@@ -51,8 +47,6 @@ services:
             - POSTGRES_DB=nextcloud
             - POSTGRES_USER=nextcloud
             - POSTGRES_PASSWORD=nextcloud
-
-        
         restart: unless-stopped
 
     app:
@@ -71,12 +65,10 @@ services:
             - ./app/data:/volumes/data1/nextcloud/www/html/data
             - ./app/themes:/var/www/html/themes
             - /etc/localtime:/etc/localtime:ro
-
         environment:
             - VIRTUAL_HOST=cloud.alexjoedt.de
             - LETSENCRYPT_HOST=cloud.alexjoedt.de
             - LETSENCRYPT_EMAIL=a.joedt@gmail.com
-        
         restart: unless-stopped
 
 volumes:
@@ -84,4 +76,4 @@ volumes:
     db:
     
     networks:
-    nextcloud_network:
+        nextcloud_network:
