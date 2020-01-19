@@ -1,7 +1,7 @@
 # dockerizedNextCloud
 
 ## Requirements
-1. Linux OS who running docker
+1. Linux OS which is running docker
 2. Docker
 3. Docker-Compose
 
