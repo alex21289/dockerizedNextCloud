@@ -68,8 +68,8 @@ services:
       - ./app/themes:/var/www/html/themes
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - VIRTUAL_HOST=192.168.2.36
-      - LETSENCRYPT_HOST=192.168.2.36
+      - VIRTUAL_HOST=odin
+      - LETSENCRYPT_HOST=odin
       - LETSENCRYPT_EMAIL=a.joedt@gmail.com
     restart: unless-stopped
 
