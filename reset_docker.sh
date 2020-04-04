@@ -13,14 +13,14 @@ docker volume prune
 docker network prune
 
 ######### DANGER ZONE ################
-#docker image rm $(docker image ls -aq)
-#docker system prune -f
-#docker system prune --volumes -a -f
+docker image rm $(docker image ls -aq)
+docker system prune -f
+docker system prune --volumes -a -f
 ######################################
 
 
 echo "Löschen abgeschlossen..."
-echo "Erzeuge neues Docker Netzwerk"
+#echo "Erzeuge neues Docker Netzwerk"
 
 #docker network create nextcloud_network
 
@@ -33,4 +33,4 @@ echo "Ordner gelöscht"
 ls -l
 docker network ls
 
-docker-compose up -d
+#docker-compose up -d
